@@ -135,6 +135,32 @@ namespace TP2
             }
         }
 
+        public static DataSet Query(String SQL)
+        {
+            try
+            {
+                using (SqlConnection Conn = new SqlConnection(connexionChaine))
+                {
+                    Conn.Open();
+
+                    SqlCommand command = new SqlCommand(SQL, Conn);
+                    
+                    DataSet carryData = new DataSet();
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+                    adapter.Fill(carryData, "Inventaire");
+
+                    return carryData;
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+        }
+
         public static int NonQuery(String SQL, Dictionary<String, Object> Parameters)
         {
             try
