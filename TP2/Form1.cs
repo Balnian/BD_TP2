@@ -124,5 +124,10 @@ namespace TP2
                 MessageBox.Show("Aucun élément sélectionné", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
+        private void rafraichirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            recherche();
+        }
     }
 }

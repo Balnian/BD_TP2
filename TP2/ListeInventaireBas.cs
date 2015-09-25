@@ -44,5 +44,10 @@ namespace TP2
             DGV_Inventaire.DataSource = Data;
             DGV_Inventaire.DataMember = "Inventaire";
         }
+
+        private void rafraichirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            recherche();
+        }
     }
 }

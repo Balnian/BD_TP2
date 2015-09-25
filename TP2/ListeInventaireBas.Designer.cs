@@ -28,8 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.DGV_Inventaire = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.rafraichirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Inventaire)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // DGV_Inventaire
@@ -38,6 +42,7 @@
             this.DGV_Inventaire.AllowUserToDeleteRows = false;
             this.DGV_Inventaire.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DGV_Inventaire.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_Inventaire.ContextMenuStrip = this.contextMenuStrip1;
             this.DGV_Inventaire.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DGV_Inventaire.Location = new System.Drawing.Point(0, 0);
             this.DGV_Inventaire.Name = "DGV_Inventaire";
@@ -47,16 +52,33 @@
             this.DGV_Inventaire.Size = new System.Drawing.Size(284, 262);
             this.DGV_Inventaire.TabIndex = 1;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rafraichirToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(166, 26);
+            // 
+            // rafraichirToolStripMenuItem
+            // 
+            this.rafraichirToolStripMenuItem.Name = "rafraichirToolStripMenuItem";
+            this.rafraichirToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this.rafraichirToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.rafraichirToolStripMenuItem.Text = "Rafraichir";
+            this.rafraichirToolStripMenuItem.Click += new System.EventHandler(this.rafraichirToolStripMenuItem_Click);
+            // 
             // ListeInventaireBas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.DGV_Inventaire);
             this.Name = "ListeInventaireBas";
             this.Text = "ListeInventaireBas";
             this.Load += new System.EventHandler(this.ListeInventaireBas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Inventaire)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -64,6 +86,8 @@
         #endregion
 
         private System.Windows.Forms.DataGridView DGV_Inventaire;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem rafraichirToolStripMenuItem;
 
     }
 }

@@ -204,6 +204,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.NUD_Stock);
             this.Controls.Add(this.label1);
+            this.MaximumSize = new System.Drawing.Size(300, 334);
+            this.MinimumSize = new System.Drawing.Size(300, 334);
             this.Name = "Ajout";
             this.Text = "Ajout";
             this.Load += new System.EventHandler(this.Ajout_Load);
