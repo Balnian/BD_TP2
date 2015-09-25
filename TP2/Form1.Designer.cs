@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.DGV_Inventaire = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.rafraichirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMI_Rafraichir = new System.Windows.Forms.ToolStripMenuItem();
             this.TB_Recherche = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ajouterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,6 +41,10 @@
             this.listerInventaireBasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.TSMI_Ajouter = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMI_Supprimer = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMI_Modifier = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMI_Lister = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Inventaire)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -62,21 +66,27 @@
             this.DGV_Inventaire.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV_Inventaire.Size = new System.Drawing.Size(523, 281);
             this.DGV_Inventaire.TabIndex = 0;
+            this.DGV_Inventaire.DoubleClick += new System.EventHandler(this.DGV_Inventaire_DoubleClick);
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.rafraichirToolStripMenuItem});
+            this.TSMI_Rafraichir,
+            this.TSMI_Ajouter,
+            this.TSMI_Supprimer,
+            this.TSMI_Modifier,
+            this.TSMI_Lister});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(166, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(219, 136);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
-            // rafraichirToolStripMenuItem
+            // TSMI_Rafraichir
             // 
-            this.rafraichirToolStripMenuItem.Name = "rafraichirToolStripMenuItem";
-            this.rafraichirToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-            this.rafraichirToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.rafraichirToolStripMenuItem.Text = "Rafraichir";
-            this.rafraichirToolStripMenuItem.Click += new System.EventHandler(this.rafraichirToolStripMenuItem_Click);
+            this.TSMI_Rafraichir.Name = "TSMI_Rafraichir";
+            this.TSMI_Rafraichir.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this.TSMI_Rafraichir.Size = new System.Drawing.Size(218, 22);
+            this.TSMI_Rafraichir.Text = "&Rafraichir";
+            this.TSMI_Rafraichir.Click += new System.EventHandler(this.rafraichirToolStripMenuItem_Click);
             // 
             // TB_Recherche
             // 
@@ -155,6 +165,38 @@
             this.panel1.Size = new System.Drawing.Size(523, 21);
             this.panel1.TabIndex = 5;
             // 
+            // TSMI_Ajouter
+            // 
+            this.TSMI_Ajouter.Name = "TSMI_Ajouter";
+            this.TSMI_Ajouter.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.TSMI_Ajouter.Size = new System.Drawing.Size(218, 22);
+            this.TSMI_Ajouter.Text = "&Ajouter";
+            this.TSMI_Ajouter.Click += new System.EventHandler(this.ajouterToolStripMenuItem1_Click);
+            // 
+            // TSMI_Supprimer
+            // 
+            this.TSMI_Supprimer.Name = "TSMI_Supprimer";
+            this.TSMI_Supprimer.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
+            this.TSMI_Supprimer.Size = new System.Drawing.Size(218, 22);
+            this.TSMI_Supprimer.Text = "&Supprimer";
+            this.TSMI_Supprimer.Click += new System.EventHandler(this.TSMI_Supprimer_Click);
+            // 
+            // TSMI_Modifier
+            // 
+            this.TSMI_Modifier.Name = "TSMI_Modifier";
+            this.TSMI_Modifier.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
+            this.TSMI_Modifier.Size = new System.Drawing.Size(218, 22);
+            this.TSMI_Modifier.Text = "&Modifier";
+            this.TSMI_Modifier.Click += new System.EventHandler(this.TSMI_Modifier_Click);
+            // 
+            // TSMI_Lister
+            // 
+            this.TSMI_Lister.Name = "TSMI_Lister";
+            this.TSMI_Lister.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
+            this.TSMI_Lister.Size = new System.Drawing.Size(218, 22);
+            this.TSMI_Lister.Text = "&Lister Inventaire Bas";
+            this.TSMI_Lister.Click += new System.EventHandler(this.TSMI_Lister_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -190,7 +232,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem rafraichirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_Rafraichir;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_Ajouter;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_Supprimer;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_Modifier;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_Lister;
     }
 }
 

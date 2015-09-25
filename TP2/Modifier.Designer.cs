@@ -146,7 +146,7 @@
             0,
             0});
             this.NUD_MaxQte.Minimum = new decimal(new int[] {
-            1,
+            2,
             0,
             0,
             0});
@@ -154,7 +154,7 @@
             this.NUD_MaxQte.Size = new System.Drawing.Size(120, 20);
             this.NUD_MaxQte.TabIndex = 15;
             this.NUD_MaxQte.Value = new decimal(new int[] {
-            1,
+            2,
             0,
             0,
             0});

@@ -17,17 +17,100 @@ namespace TP2
             InitializeComponent();
         }
 
+        #region Variables
+
         private DataSet Data;
+
+        #endregion
+
+        #region Form Load
         private void Form1_Load(object sender, EventArgs e)
         {
             recherche();
         }
+        #endregion
 
+        #region Recherche
         private void TB_Recherche_TextChanged(object sender, EventArgs e)
         {
             recherche();
         }
+        #endregion
 
+        #region ToolStripMenu
+        private void listerInventaireBasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListerBas();
+        }
+
+        
+
+        private void ajouterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            ajouter();
+        }
+
+        
+
+        private void suppressionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            supprimer();
+        }
+
+        
+
+        private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            modifier();
+        }
+
+        
+
+        private void rafraichirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            recherche();
+        }
+
+        private void DGV_Inventaire_DoubleClick(object sender, EventArgs e)
+        {
+            modifier();
+        }
+
+        private void ajouterToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ajouter();
+
+        }
+        #endregion
+
+        #region Context Menu
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            TSMI_Modifier.Enabled = TSMI_Supprimer.Enabled = DGV_Inventaire.SelectedRows.Count > 0;
+        }
+
+        private void TSMI_Modifier_Click(object sender, EventArgs e)
+        {
+            modifier();
+        }
+
+        private void TSMI_Lister_Click(object sender, EventArgs e)
+        {
+            ListerBas();
+        }
+
+        private void TSMI_Supprimer_Click(object sender, EventArgs e)
+        {
+            supprimer();
+        }
+        #endregion
+
+        #region Fonctions
+
+        /// <summary>
+        /// Fait une recherche avec les termes du TB_Recherche
+        /// </summary>
         private void recherche()
         {
             Dictionary<String, Object> dico = new Dictionary<String, Object>();
@@ -57,21 +140,31 @@ namespace TP2
             DGV_Inventaire.DataMember = "Inventaire";
         }
 
-        private void listerInventaireBasToolStripMenuItem_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Crée une fenêtre qui affiche les éléments ayant atteind leur minimum ou plus bas
+        /// </summary>
+        private void ListerBas()
         {
             ListeInventaireBas inv = new ListeInventaireBas();
             inv.Show();
         }
 
-        private void ajouterToolStripMenuItem_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Crée une fenêtre qui permet la création d'un élément d'inventaire. Puis rafraichie l'affichage dans le DGV_Inventaire
+        /// </summary>
+        private void ajouter()
         {
             Ajout aj = new Ajout();
             aj.ShowDialog();
             recherche();
-
         }
 
-        private void suppressionToolStripMenuItem_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Supprime tous les éléments sélectionnés dans le DGV_Inventaire.
+        /// Affiche un avertissement avant la suppression.
+        /// Puis rafraichie l'affichage dans le DGV_Inventaire
+        /// </summary>
+        private void supprimer()
         {
             if (DGV_Inventaire.SelectedRows.Count > 0)
             {
@@ -105,7 +198,11 @@ namespace TP2
             }
         }
 
-        private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Crée une fenêtre qui permet la modification des éléments sélectionner dans le DGV_Inventaire.
+        /// Puis rafraichie l'affichage dans le DGV_Inventaire
+        /// </summary>
+        private void modifier()
         {
             if (DGV_Inventaire.SelectedRows.Count > 0)
             {
@@ -125,9 +222,6 @@ namespace TP2
             }
         }
 
-        private void rafraichirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            recherche();
-        }
+        #endregion
     }
 }

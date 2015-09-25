@@ -76,7 +76,7 @@
             0,
             0});
             this.NUD_MaxQte.Minimum = new decimal(new int[] {
-            1,
+            2,
             0,
             0,
             0});
@@ -84,10 +84,11 @@
             this.NUD_MaxQte.Size = new System.Drawing.Size(120, 20);
             this.NUD_MaxQte.TabIndex = 3;
             this.NUD_MaxQte.Value = new decimal(new int[] {
-            1,
+            2,
             0,
             0,
             0});
+            this.NUD_MaxQte.ValueChanged += new System.EventHandler(this.NUD_MaxQte_ValueChanged);
             // 
             // label2
             // 
@@ -119,6 +120,7 @@
             0,
             0,
             0});
+            this.NUD_MinQte.ValueChanged += new System.EventHandler(this.NUD_MinQte_ValueChanged);
             // 
             // label3
             // 
@@ -164,6 +166,7 @@
             this.TB_Description.Name = "TB_Description";
             this.TB_Description.Size = new System.Drawing.Size(260, 94);
             this.TB_Description.TabIndex = 9;
+            this.TB_Description.TextChanged += new System.EventHandler(this.TB_Description_TextChanged);
             // 
             // BT_Appliquer
             // 
