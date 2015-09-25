@@ -31,19 +31,19 @@ namespace TP2
         private void recherche()
         {
             Dictionary<String, Object> dico = new Dictionary<String, Object>();
-            
+
             try
             {
-                if (!String.IsNullOrWhiteSpace( TB_Recherche.Text))
+                if (!String.IsNullOrWhiteSpace(TB_Recherche.Text))
                 {
-                    dico.Add("@Terme", "%"+TB_Recherche.Text+"%");
+                    dico.Add("@Terme", "%" + TB_Recherche.Text + "%");
                     Data = DAL_Inventaire.Query("select * from Inventaire where DescriptionInventaire like @Terme", dico);
                 }
                 else
                 {
                     Data = DAL_Inventaire.Query("select * from Inventaire");
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -61,6 +61,52 @@ namespace TP2
         {
             ListeInventaireBas inv = new ListeInventaireBas();
             inv.Show();
+        }
+
+        private void ajouterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Ajout aj = new Ajout();
+            aj.ShowDialog();
+            
+
+        }
+
+        private void suppressionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (DGV_Inventaire.SelectedRows.Count > 0)
+            {
+                Dictionary<String, Object> dico;
+                if (MessageBox.Show("Êtes-vous sur de vouloir supprimer " + ((DGV_Inventaire.SelectedRows.Count > 1) ? ("les " + DGV_Inventaire.SelectedRows.Count.ToString() + " éléments sélectionnés") : "l'élément sélectionné") + "?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                    foreach (DataGridViewRow row in DGV_Inventaire.SelectedRows)
+                    {
+                        dico = new Dictionary<String, Object>();
+                        try
+                        {
+
+                            dico.Add("@Id", row.Cells["IdInventaire"].Value);
+                            int count = 0;
+                            if ((count = DAL_Inventaire.NonQuery("delete from Inventaire where IdInventaire = @Id", dico)) != 1)
+                            {
+                                MessageBox.Show("Une erreur ses produite: " + count.ToString() + " éléments ont été modifiés", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+
+                        }
+                        catch (Exception ex)
+                        {
+
+                            MessageBox.Show(ex.Message);
+                        }
+                    }
+            }
+            else
+            {
+                MessageBox.Show("Aucun élément sélectionné", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
