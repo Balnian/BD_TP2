@@ -63,6 +63,12 @@
     <Compile Include="ListeInventaireBas.Designer.cs">
       <DependentUpon>ListeInventaireBas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modifier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modifier.Designer.cs">
+      <DependentUpon>Modifier.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Ajout.resx">
@@ -73,6 +79,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ListeInventaireBas.resx">
       <DependentUpon>ListeInventaireBas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modifier.resx">
+      <DependentUpon>Modifier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

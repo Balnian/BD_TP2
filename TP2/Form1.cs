@@ -67,7 +67,7 @@ namespace TP2
         {
             Ajout aj = new Ajout();
             aj.ShowDialog();
-            
+            recherche();
 
         }
 
@@ -97,6 +97,7 @@ namespace TP2
                             MessageBox.Show(ex.Message);
                         }
                     }
+                recherche();
             }
             else
             {
@@ -106,7 +107,22 @@ namespace TP2
 
         private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (DGV_Inventaire.SelectedRows.Count > 0)
+            {
+                Dictionary<String, Object> dico;
 
+                foreach (DataGridViewRow row in DGV_Inventaire.SelectedRows)
+                {
+                    dico = new Dictionary<String, Object>();
+                    Modifier mod = new Modifier((int)row.Cells["IdFournisseur"].Value);
+                    mod.ShowDialog();
+                }
+                recherche();
+            }
+            else
+            {
+                MessageBox.Show("Aucun élément sélectionné", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }

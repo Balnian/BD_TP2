@@ -113,7 +113,7 @@
             this.Controls.Add(this.TB_Recherche);
             this.Controls.Add(this.menuStrip1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Inventaire";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Inventaire)).EndInit();
             this.menuStrip1.ResumeLayout(false);
