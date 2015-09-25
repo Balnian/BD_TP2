@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListeInventaireBas));
             this.DGV_Inventaire = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.rafraichirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -74,6 +75,7 @@
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.DGV_Inventaire);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ListeInventaireBas";
             this.Text = "ListeInventaireBas";
             this.Load += new System.EventHandler(this.ListeInventaireBas_Load);

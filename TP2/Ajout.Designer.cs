@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ajout));
             this.label1 = new System.Windows.Forms.Label();
             this.NUD_Stock = new System.Windows.Forms.NumericUpDown();
             this.NUD_MaxQte = new System.Windows.Forms.NumericUpDown();
@@ -204,6 +205,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.NUD_Stock);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(300, 334);
             this.MinimumSize = new System.Drawing.Size(300, 334);
             this.Name = "Ajout";

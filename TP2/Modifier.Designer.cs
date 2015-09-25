@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Modifier));
             this.BT_Annuler = new System.Windows.Forms.Button();
             this.BT_Appliquer = new System.Windows.Forms.Button();
             this.TB_Description = new System.Windows.Forms.TextBox();
@@ -207,6 +208,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.NUD_Stock);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(300, 334);
             this.MinimumSize = new System.Drawing.Size(300, 334);
             this.Name = "Modifier";
