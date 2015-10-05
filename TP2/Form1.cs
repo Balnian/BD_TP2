@@ -223,5 +223,29 @@ namespace TP2
         }
 
         #endregion
+
+        private void fournisseursToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Rapport rap = new Rapport(new Fournisseur());
+            rap.Show();
+        }
+
+        private void fournisseursEtiquettesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Rapport rap = new Rapport(new FournisseursEtiquettes());
+            rap.Show();
+        }
+
+        private void produitsParFournisseursToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Rapport rap = new Rapport(new ProduitsFournisseurs());
+            rap.Show();
+        }
+
+        private void inventaireBasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Rapport rap = new Rapport(new InventaireBas());
+            rap.Show();
+        }
     }
 }
