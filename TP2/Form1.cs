@@ -224,28 +224,53 @@ namespace TP2
 
         #endregion
 
+        #region Crystal Report
+
+        /// <summary>
+        /// Crées le rapport qui liste les Fournisseurs
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void fournisseursToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Rapport rap = new Rapport(new Fournisseur());
             rap.Show();
         }
 
+        /// <summary>
+        /// Crées le rapport qui génère les étiquettes des fournisseurs
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void fournisseursEtiquettesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Rapport rap = new Rapport(new FournisseursEtiquettes());
             rap.Show();
         }
 
+        /// <summary>
+        /// Crées le rapport qui liste les produits par Fournisseurs
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void produitsParFournisseursToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Rapport rap = new Rapport(new ProduitsFournisseurs());
             rap.Show();
         }
 
+        /// <summary>
+        /// Crées le rapport qui liste les produits qui sont bas en inventaire
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void inventaireBasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Rapport rap = new Rapport(new InventaireBas());
+            InventaireBas Temprap = new InventaireBas();
+            Temprap.SetDataSource(DAL_Inventaire.Query("select f.NomFournisseur, i.DescriptionInventaire, i.QteMaximum, i.QteStock  from Inventaire i left join Fournisseur f on i.IdFournisseur = f.IdFournisseur  where QteStock <= QteMinimum").Tables["Inventaire"]);
+            Rapport rap = new Rapport(Temprap);
             rap.Show();
         }
+        #endregion
     }
 }
